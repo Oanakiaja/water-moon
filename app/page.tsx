@@ -32,8 +32,10 @@ const App = () => {
         flex w-full h-full justify-around items-center
         text-[#ffffff] font-bold
         transition-opacity duration-300 ease-in-out
-       opacity-${opacity === -1 ? 0 : opacity}
         `}
+        style={{
+          opacity: opacity === -1 ? 0 : opacity,
+        }}
       >
         <div
           className="transform translate-y-60"

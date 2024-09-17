@@ -25,7 +25,7 @@ const Scene = () => {
     }
     setTimeout(() => {
       getDefaultStore().set(OpacityAtom, 0);
-    }, 2000);
+    }, 2500);
   });
 
   return (
