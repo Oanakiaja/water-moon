@@ -1,28 +1,23 @@
+'use client';
 import React, { useEffect } from "react";
 import { useThree } from "@react-three/fiber";
 import * as THREE from "three";
+import { useControls } from "leva";
 
 const MoonSky = () => {
   const { gl, scene } = useThree();
+  const { bgColor } = useControls({
+    bgColor: '#030c19',
+  });
 
   useEffect(() => {
     gl.toneMapping = THREE.ACESFilmicToneMapping;
     gl.toneMappingExposure = 0.5;
-    scene.background = new THREE.Color(0x0b141d);
+    // #01050b
+    scene.background = new THREE.Color(bgColor);
   }, []);
-  return (
-    <>
-      {/* <Sky
-        scale={10000}
-        turbidity={20}
-        rayleigh={0}
-        mieCoefficient={0.001}
-        mieDirectionalG={0.63}
-        azimuth={180}
-        sunPosition={[0, 0.1, -1]}
-      /> */}
-    </>
-  );
+  return null;
+
 };
 
 export default MoonSky;

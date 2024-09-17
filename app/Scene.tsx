@@ -1,13 +1,18 @@
 "use client";
-import { useRef, useMemo } from "react";
 import { Canvas } from "@react-three/fiber";
-import * as THREE from "three";
 import Ocean from "@/components/ocean";
 import Sky from "@/components/sky";
-import HtmlContent from "./html";
 import Moon from "@/components/moon";
+import { EffectComposer, Bloom } from "@react-three/postprocessing";
+import { useControls } from "leva";
+// import { OrbitControls } from "@react-three/drei";
 
 const Scene = () => {
+  const { luminanceThreshold, radius } = useControls({
+    luminanceThreshold: 0,
+    radius: 0.75,
+  });
+
   return (
     <Canvas
       camera={{
@@ -18,23 +23,20 @@ const Scene = () => {
       }}
       style={{ width: "100vw", height: "100vh" }}
     >
-      <HtmlContent />
       <Moon />
       <Ocean />
       <Sky />
-      {/* <Sky scale={1000} sunPosition={[500, 150, -1000]} turbidity={0.1} /> */}
       {/* <OrbitControls makeDefault /> */}
-      <ambientLight intensity={0.3} />
-      {/* <CameraShake
-          maxYaw={0.1} // Max amount camera can yaw in either direction
-          maxPitch={0.1} // Max amount camera can pitch in either direction
-          maxRoll={0.1} // Max amount camera can roll in either direction
-          yawFrequency={0.1} // Frequency of the the yaw rotation
-          pitchFrequency={0.1} // Frequency of the pitch rotation
-          rollFrequency={0.1} // Frequency of the roll rotation
-          intensity={1} // initial intensity of the shake
-          decayRate={0.65} // if decay = true this is the rate at which intensity will reduce at />
-        /> */}
+      <ambientLight intensity={Math.PI / 2} color={0xf8f8c5} />
+      <directionalLight position={[0, 1, 2]} color="white" />
+
+      <EffectComposer>
+        <Bloom
+          mipmapBlur
+          luminanceThreshold={luminanceThreshold}
+          radius={radius}
+        />
+      </EffectComposer>
     </Canvas>
   );
 };
