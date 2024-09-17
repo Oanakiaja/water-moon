@@ -1,5 +1,5 @@
 # water-moon
 
-中秋节快乐~
+月明中秋，大江东流
 
 ![moon](image.png)

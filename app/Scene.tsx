@@ -1,10 +1,12 @@
 "use client";
-import { Canvas } from "@react-three/fiber";
+import { Canvas, useFrame } from "@react-three/fiber";
 import Ocean from "@/components/ocean";
 import Sky from "@/components/sky";
 import Moon from "@/components/moon";
 import { EffectComposer, Bloom } from "@react-three/postprocessing";
 import { useControls } from "leva";
+import { OpacityAtom } from "./page";
+import { getDefaultStore } from "jotai";
 // import { OrbitControls } from "@react-three/drei";
 
 const Scene = () => {
@@ -13,16 +15,21 @@ const Scene = () => {
     radius: 0.75,
   });
 
+  useFrame(() => {
+    const opacity = getDefaultStore().get(OpacityAtom);
+    if (opacity === -1) {
+      getDefaultStore().set(OpacityAtom, 100);
+    }
+    if (opacity === 0) {
+      return;
+    }
+    setTimeout(() => {
+      getDefaultStore().set(OpacityAtom, 0);
+    }, 2000);
+  });
+
   return (
-    <Canvas
-      camera={{
-        position: [0, 10, 1000],
-        fov: 55,
-        near: 1,
-        far: 20000,
-      }}
-      style={{ width: "100vw", height: "100vh" }}
-    >
+    <>
       <Moon />
       <Ocean />
       <Sky />
@@ -37,7 +44,7 @@ const Scene = () => {
           radius={radius}
         />
       </EffectComposer>
-    </Canvas>
+    </>
   );
 };
 
