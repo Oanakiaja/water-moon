@@ -5,8 +5,8 @@ import Sky from "@/components/sky";
 import Moon from "@/components/moon";
 import { EffectComposer, Bloom } from "@react-three/postprocessing";
 import { useControls } from "leva";
-import { OpacityAtom } from "./page";
 import { getDefaultStore } from "jotai";
+import { OpacityAtom } from "./store";
 // import { OrbitControls } from "@react-three/drei";
 
 const Scene = () => {

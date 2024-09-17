@@ -4,9 +4,8 @@ import Scene from "./Scene";
 import { TwitterLogoIcon, GitHubLogoIcon } from "@radix-ui/react-icons";
 import { useLayoutEffect, useRef, useState } from "react";
 import { Canvas } from "@react-three/fiber";
-import { atom, useAtomValue } from "jotai";
-
-export const OpacityAtom = atom(-1);
+import { useAtomValue } from "jotai";
+import { OpacityAtom } from "./store";
 
 const App = () => {
   // const maskRef = useRef<HTMLDivElement>(null);

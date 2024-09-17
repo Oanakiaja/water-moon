@@ -2,8 +2,8 @@ import React, { useRef } from "react";
 import { useFrame, useLoader } from "@react-three/fiber";
 import { TextureLoader } from "three";
 import { useControls } from "leva";
-import { getDefaultStore, useAtomValue } from "jotai";
-import { OpacityAtom } from "@/app/page";
+import { getDefaultStore } from "jotai";
+import { OpacityAtom } from "@/app/store";
 
 const Moon = () => {
   const moonTexture = useLoader(TextureLoader, "/moon.png");
