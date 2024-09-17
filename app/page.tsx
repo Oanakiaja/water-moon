@@ -15,7 +15,8 @@ const App = () => {
     <main className="w-screen h-screen">
       <div
         className={`
-          fixed z-20 transition-opacity duration-300 ease-in-out opacity-10
+          opacity-0
+          fixed z-20 transition-opacity duration-300 ease-in-out md:opacity-10
           hover:opacity-100
           select-none
           `}
@@ -26,7 +27,8 @@ const App = () => {
       <div
         className={`
                 fixed z-10
-          text-8xl
+          text-7xl
+          sm:text-8xl
           lg:text-9xl
           select-none
         flex w-full h-full justify-around items-center
@@ -38,7 +40,7 @@ const App = () => {
         }}
       >
         <div
-          className="transform translate-y-60"
+          className="transform translate-y-40 sm:translate-y-80"
           style={{
             writingMode: "vertical-rl",
             textOrientation: "upright",
@@ -48,7 +50,7 @@ const App = () => {
           大江東流
         </div>
         <div
-          className="transform -translate-y-60"
+          className="transform -translate-y-40 sm:-translate-y-80"
           style={{
             writingMode: "vertical-rl",
             textOrientation: "upright",
@@ -72,7 +74,8 @@ const App = () => {
       <Leva hidden />
       <div
         className={`
-          fixed top-1 right-1 z-20 transition-opacity duration-300 ease-in-out opacity-10
+          opacity-0
+          fixed top-1 right-1 z-20 transition-opacity duration-300 ease-in-out md:opacity-10
           hover:opacity-100
           select-none
           `}
