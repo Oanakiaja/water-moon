@@ -11,8 +11,6 @@ const MoonSky = () => {
   });
 
   useEffect(() => {
-    gl.toneMapping = THREE.ACESFilmicToneMapping;
-    gl.toneMappingExposure = 0.5;
     // #01050b
     scene.background = new THREE.Color(bgColor);
   }, []);

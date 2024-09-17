@@ -16,7 +16,7 @@ const App = () => {
         <span>海上升明月 - 祝福大家 中秋节快乐 </span>
       </div>
       <Scene />
-      <Leva hidden />
+      <Leva hidden  />
       <div
         className={`
           fixed top-1 right-1 z-10 transition-opacity duration-300 ease-in-out opacity-10
